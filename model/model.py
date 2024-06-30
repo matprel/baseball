@@ -29,8 +29,8 @@ class Model:
         parziale.pop()
 
         #return self._soluzioneBest
+        print(self.getWeightsOfPath(self._soluzioneBest))
 
-        self.ricorsioneV2(parziale)
         return self.getWeightsOfPath(self._soluzioneBest)
 
 
@@ -59,7 +59,7 @@ class Model:
             for v1 in listaVicini:
                 if v1[0] not in parziale and self._grafo[parziale[-2]][parziale[-1]]["weight"] > v1[1]:
                     parziale.append(v1[0])
-                    self.ricorsione(parziale)
+                    self.ricorsioneV2(parziale)
                     parziale.pop()
                     return
 
@@ -77,7 +77,6 @@ class Model:
         listTuples = [(path[0], 0)]
         for i in range(0, len(path) - 1):
             listTuples.append((path[i + 1], self._grafo[path[i]][path[i + 1]]["weight"]))
-
         return listTuples
 
     def getAllAnni(self):

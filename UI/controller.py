@@ -54,7 +54,7 @@ class Controller:
 
     def handlePercorso(self, e):
         if self._squadraScelta == None:
-            warnings.warn("Squadra non selezionata")
+            warnings.warn("Squadra non selezionata") #stampa nella console
             self._view._txt_result.controls.append(ft.Text(f"Squadra non selezionata."))
 
         percorso = self._model.getPathPesoMax(self._squadraScelta)
@@ -62,6 +62,5 @@ class Controller:
         self._view._txt_result.controls.clear()
         self._view._txt_result.controls.append(ft.Text(f"Percorso trovato."))
         for p in percorso:
-            self._view._txt_result.controls.append(ft.Text(f"{p[0]} -- {p[1]}"))
-
+            self._view._txt_result.controls.append(ft.Text(f"{p[0]} -- {p[1]}")) #stampo nodo e peso
         self._view.update_page()
